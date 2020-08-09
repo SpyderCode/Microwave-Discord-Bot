@@ -23,7 +23,7 @@ class MyClient(discord.Client):
         if "!microwave" in message.content:
             print(message.author.id)
             print(id)
-            if (message.author.id == 690208332287311894):  # El id de yessi
+            if (message.author.id == int(id)):  # El id de yessi
                 await message.channel.send("Yessi mato un microondas :c")
                 await message.channel.send("Pero estaba rica el ⓟⓞⓩⓞⓛⓔ")
                 await message.channel.send(":drooling_face:")
