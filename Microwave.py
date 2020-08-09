@@ -34,8 +34,8 @@ class MyClient(discord.Client):
             # Selecciona una palabra
             palabra = random.choice(nouns)
             print(f"selecting word {palabra}")
-            palabraesp = translator.translate(
-            palabra, dest="es", src="auto")
+            palabraesp = translator.translate(palabra, dest="es", src="auto")
+            
             await message.channel.send(f"MMMMMMMMMMMMMMMMMMMMMMMMM\nBEEP BEEP BEEP\nHuele a: {palabraesp.text}")
             print("Messages sent")
 
