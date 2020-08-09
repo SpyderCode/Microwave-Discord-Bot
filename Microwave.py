@@ -2,15 +2,19 @@
 import discord
 import random
 from googletrans import Translator
+
 translator = Translator()
+
 
 def token():
     with open("Token.txt") as secretToken:
-    	token=secretToken.read()
-    return token
+        return secretToken.read()
+
 
 def id():
-	with
+    with open("ID.txt") as idtxt:
+        return idtxt.read()
+
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -24,18 +28,16 @@ class MyClient(discord.Client):
                 await message.channel.send(":drooling_face:")
                 print("Yessi mando un mensaje")
 
-				#Abre primero la lista de sustantivos y los lee
-                with open("nounlist.txt") as word_file:
-                    nouns = word_file.read().split()
-
-				#Selecciona una palabra
-                palabra = random.choice(nouns)
-                print(f"selecting word {palabra}")
-                palabraesp = translator.translate(
-                    palabra, dest="es", src="auto")
-
-                await message.channel.send(f"MMMMMMMMMMMMMMMMMMMMMMMMM\nBEEP BEEP BEEP\nHuele a: {palabraesp.text}")
-                print("Messages sent")
+            # Abre primero la lista de sustantivos y los lee
+            with open("nounlist.txt") as word_file:
+                nouns = word_file.read().split()
+            # Selecciona una palabra
+            palabra = random.choice(nouns)
+            print(f"selecting word {palabra}")
+            palabraesp = translator.translate(
+            palabra, dest="es", src="auto")
+            await message.channel.send(f"MMMMMMMMMMMMMMMMMMMMMMMMM\nBEEP BEEP BEEP\nHuele a: {palabraesp.text}")
+            print("Messages sent")
 
 
 Bot = MyClient()
