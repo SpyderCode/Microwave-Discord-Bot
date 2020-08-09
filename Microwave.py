@@ -40,6 +40,6 @@ class MyClient(discord.Client):
             await message.channel.send(f"MMMMMMMMMMMMMMMMMMMMMMMMM\nBEEP BEEP BEEP\nHuele a: {palabraesp.text}")
             print("Messages sent")
 
-
+#starts and runs the bot
 Bot = MyClient()
 Bot.run(token())
