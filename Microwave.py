@@ -10,10 +10,9 @@ def token():
     with open("Token.txt") as secretToken:
         return secretToken.read()
 
-
-def id():
-    with open("ID.txt") as idtxt:
-        return idtxt.read()
+with open("ID.txt") as idtxt:
+    id = idtxt.read()
+print(f"Special friends ID: ",id)
 
 
 class MyClient(discord.Client):
@@ -22,9 +21,11 @@ class MyClient(discord.Client):
 
     async def on_message(self, message):
         if "!microwave" in message.content:
-            if message.author.id == id():  # El id de yessi
+            print(message.author.id)
+            print(id)
+            if (message.author.id == 690208332287311894):  # El id de yessi
                 await message.channel.send("Yessi mato un microondas :c")
-                await message.channel.send("Pero estaba rica el posole")
+                await message.channel.send("Pero estaba rica el ⓟⓞⓩⓞⓛⓔ")
                 await message.channel.send(":drooling_face:")
                 print("Yessi mando un mensaje")
 
@@ -39,6 +40,8 @@ class MyClient(discord.Client):
             #Con esto se lo manda al servidor
             await message.channel.send(f"MMMMMMMMMMMMMMMMMMMMMMMMM\nBEEP BEEP BEEP\nHuele a: {palabraesp.text}")
             print("Messages sent")
+        elif "te quiero" in message.content and not message.author.bot:
+            await message.channel.send(f"Yo tambien te quiero :3")
 
 #starts and runs the bot
 Bot = MyClient()
